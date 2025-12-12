@@ -1,0 +1,73 @@
+/* STYLE TEMA BIRU UTAMA */
+body {
+    font-family: Arial, sans-serif;
+    background: #e6f1ff;
+    margin: 0;
+    color: #003060;
+}
+
+/* HEADER & FOOTER */
+header, footer {
+    background: #003e7f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* NAVIGATION */
+nav {
+    background: #0059b3;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* MAIN SECTION */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* IMAGE */
+img {
+    max-width: 150px;
+    border-radius: 10px;
+}
+
+/* TABEL */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table, th, td {
+    border: 1px solid #0059b3;
+}
+
+th, td {
+    padding: 8px;
+}
+
+/* IFRAME & VIDEO */
+iframe, video {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* FOOTER MARGIN */
+footer {
+    margin-top: 40px;
+}
