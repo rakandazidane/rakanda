@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Premium - Gym & Fitness</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --input-focus: #3b82f6;
+            --text-main: #1e293b;
+            --bg-soft: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #e2e8f0;
+            background-image: radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.1) 0, transparent 50%), 
+                              radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.1) 0, transparent 50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 450px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #f8fafc;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+            transform: scale(1.01);
+        }
+
+        .row-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover { color: var(--input-focus); }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Mulai Latihanmu!</h2>
+        <p class="subtitle">Gabung sekarang dan rasakan perubahannya</p>
+
+        <form id="reservationForm">
+            <div class="form-group">
+                <label for="nama"><i class="fa-solid fa-user"></i> Nama Lengkap</label>
+                <input type="text" id="nama" name="nama" placeholder="Budi Santoso" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
+                <input type="email" id="email" name="email" placeholder="budi@example.com" required>
+            </div>
+
+            <div class="row-group">
+                <div class="form-group">
+                    <label for="tanggal"><i class="fa-solid fa-calendar"></i> Tanggal</label>
+                    <input type="date" id="tanggal" name="tanggal" required>
+                </div>
+                <div class="form-group">
+                    <label for="jam"><i class="fa-solid fa-clock"></i> Jam</label>
+                    <input type="time" id="jam" name="jam" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="program"><i class="fa-solid fa-dumbbell"></i> Program</label>
+                <select id="program" name="program" required>
+                    <option value="" disabled selected>Pilih Program</option>
+                    <option value="Trial Membership">Trial Membership (Gratis)</option>
+                    <option value="Yoga Class">Yoga Class</option>
+                    <option value="Zumba Class">Zumba Class</option>
+                    <option value="Personal Trainer">Personal Trainer</option>
+                </select>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="konfirmasi" required>
+                <label for="konfirmasi">Saya setuju dengan syarat & ketentuan.</label>
+            </div>
+
+            <button type="submit" id="submitBtn">
+                <span>Kirim Reservasi</span>
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <a href="#" class="back-link">← Kembali ke Beranda</a>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah reload halaman
+            
+            const btn = document.getElementById('submitBtn');
+            const nama = document.getElementById('nama').value;
+            
+            // Efek Loading pada tombol
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Memproses...';
+            btn.style.pointerEvents = 'none';
+
+            // Simulasi pengiriman data (2 detik)
+            setTimeout(() => {
+                // Notifikasi Sukses
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: `Halo ${nama}, reservasi Anda telah kami terima. Kami akan menghubungi Anda segera!`,
+                    icon: 'success',
+                    confirmButtonColor: '#2563eb',
+                    borderRadius: '20px'
+                });
+
+                // Reset form dan tombol
+                document.getElementById('reservationForm').reset();
+                btn.innerHTML = '<span>Kirim Reservasi</span> <i class="fa-solid fa-paper-plane"></i>';
+                btn.style.pointerEvents = 'auto';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
