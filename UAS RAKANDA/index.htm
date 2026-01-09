@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartFit Hub | Train Smart, Live Strong</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #91d327; /* Hijau Neon Modern */
+            --dark-bg: #020218;
+            --secondary-bg: #1a1961;
+            --text-light: #ffffff;
+            --accent-color: #1d5f2e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        /* Quick Stats */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background: var(--primary-color);
+            padding: 3rem 5%;
+            color: var(--dark-bg);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sections General */
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+
+        /* About Us */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .values {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: var(--secondary-bg);
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        /* Programs & Facilities */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+            background: var(--secondary-bg);
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        table th {
+            color: var(--primary-color);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact & Locations */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .branch-list {
+            list-style: none;
+        }
+
+        .branch-item {
+            background: var(--secondary-bg);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .map-placeholder {
+            background: #334155;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: #94a3b8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #020617;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-content, .contact-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Mobile menu simplified for code brevity */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SMARTFIT HUB</div>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#programs">Program</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>TRAIN SMART, LIVE STRONG</h1>
+        <p>Ekosistem Kebugaran Masa Depan di Ujung Jari Anda</p>
+        <a href="#programs" style="background: var(--primary-color); color: var(--dark-bg); padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold;">GABUNG SEKARANG</a>
+    </section>
+
+    <div class="stats">
+        <div class="stat-item">
+            <h2>4</h2>
+            <p>CABANG STRATEGIS</p>
+        </div>
+        <div class="stat-item">
+            <h2>15,000+</h2>
+            <p>MEMBER AKTIF</p>
+        </div>
+        <div class="stat-item">
+            <h2>5.0</h2>
+            <p>RATING KEPUASAN</p>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2 class="section-title">Tentang Kami</h2>
+        <div class="about-content">
+            <div>
+                <h3>Visi & Misi</h3>
+                <p>Menjadi pusat kebugaran terdepan yang mengintegrasikan teknologi dan komunitas untuk menciptakan gaya hidup berkelanjutan.</p>
+                <br>
+                <p>Misi kami adalah mendemokrasikan akses kesehatan premium melalui inovasi digital dan bimbingan ahli yang personal.</p>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=600&q=80" alt="Team" style="width:100%; border-radius:15px;">
+            </div>
+        </div>
+        
+        <div class="values">
+            <div class="value-card">
+                <h4>DISIPLIN</h4>
+                <p>Konsistensi adalah kunci transformasi.</p>
+            </div>
+            <div class="value-card">
+                <h4>KONSISTENSI</h4>
+                <p>Membangun kebiasaan setiap hari.</p>
+            </div>
+            <div class="value-card">
+                <h4>COMMUNITY</h4>
+                <p>Tumbuh bersama dalam ekosistem digital.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" style="background: var(--secondary-bg);">
+        <h2 class="section-title">Program & Fasilitas</h2>
+        
+        <h3>Signature Programs</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Kelas</th>
+                    <th>Deskripsi</th>
+                    <th>Durasi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AI-Driven HIIT</td>
+                    <td>Latihan intensitas tinggi yang dipandu tracking sensor.</td>
+                    <td>45 Menit</td>
+                </tr>
+                <tr>
+                    <td>Yoga Synergy</td>
+                    <td>Keseimbangan pikiran dan tubuh di ruang kedap suara.</td>
+                    <td>60 Menit</td>
+                </tr>
+                <tr>
+                    <td>Digital Powerlifting</td>
+                    <td>Latihan beban dengan analisis postur real-time.</td>
+                    <td>75 Menit</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Fasilitas Kami</h3>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=400&q=80" alt="Gym Floor">
+            <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=400&q=80" alt="Equipment">
+            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2158?auto=format&fit=crop&w=400&q=80" alt="Lounge">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=400&q=80" alt="Class">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Lokasi & Kontak</h2>
+        <div class="contact-container">
+            <div>
+                <ul class="branch-list">
+                    <li class="branch-item">
+                        <strong>Jakarta Pusat - Headquarter</strong><br>
+                        Jl. Sudirman Kav 21 | Telp: 021-555666
+                    </li>
+                    <li class="branch-item">
+                        <strong>Bandung - Dago Hub</strong><br>
+                        Jl. Ir. H Juanda No 10 | Telp: 022-777888
+                    </li>
+                    <li class="branch-item">
+                        <strong>Surabaya - West Point</strong><br>
+                        Jl. Mayjen Sungkono | Telp: 031-999000
+                    </li>
+                    <li class="branch-item">
+                        <strong>Bali - Sanur Beach</strong><br>
+                        Jl. Bypass Ngurah Rai | Telp: 0361-111222
+                    </li>
+                </ul>
+            </div>
+            <div class="map-placeholder">
+                [ Google Maps Interactive - Area ]
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SmartFit Hub. All Rights Reserved. Designed for the Future.</p>
+    </footer>
+
+</body>
+</html>
